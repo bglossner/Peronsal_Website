@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=PossButtons
+comment1.params=a
+comment1.target=PossButtons(javax.swing.JButton)
+comment2.params=
+comment2.target=void\ number()
+comment2.text=\r\n\ Adds\ certain\ String\ to\ onScreen\ according\ to\ the\ JButton\ pressed.\r\n
+numComments=3

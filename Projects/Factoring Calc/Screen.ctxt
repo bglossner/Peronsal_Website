@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Screen
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ Creates\ the\ window\ for\ the\ calculator\r\n\ @param\ args\ \ Just\ {}\r\n
+numComments=2

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=FindAny
+comment1.params=
+comment1.target=FindAny()
+comment2.params=s
+comment2.target=FindAny(javax.swing.JTextField)
+numComments=3

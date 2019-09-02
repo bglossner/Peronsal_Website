@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="toggle_switch.css">
+    <link rel="stylesheet" href="slideshow.css">
+    <link rel="shortcut icon" href="Pics/ben-favicon.png">
+    <title>Ben Glossner</title>
+    <!-- <script src="anime.min.js"></script> -->
+    <script src="websitejs.js"></script>
+    <script src="Slide.js"></script>
+    <script src="Slideshow.js"></script>
+</head>
+
+<body>
+    <div id="content">
+        <div id="maindiv">
+            <p id="title">Benjamin Glossner</p>
+            <hr class="hline">
+        </div>
+        <div id="bars">
+            <img src="Pics/3bar_icon.png" class="left bars" onclick="toggleSidebar()" />
+        </div>
+        <nav class="sidebar">
+            <a class="sidebarlink" id="homelink" onclick="openPage('home')">Home</a>
+            <a class="sidebarlink" id="aboutlink" onclick="openPage('about')">About Me</a>
+            <a class="sidebarlink" id="projectslink" onclick="openPage('projects')">Projects</a>
+            <a class="sidebarlink" id="contactlink" onclick="openPage('contact')">Contact Me</a>
+        </nav>
+        <!-- FOR HOME TAB -->
+        <div id="homepage" class="page">
+            <div>
+                <img src="Pics/ben crop.jpg" />
+                <p class="opening-statement">Welcome to my website!</p>
+                <p class="opening-statement">I'm an aspiring software developer who loves to work on anything code!</p>
+                <div id="home-search">
+                    <div class="search">
+                        <input id="text_search" type="text" onkeydown="searchBarKey(event)"
+                            placeholder="Enter your search">
+                        <img class="searchbar_icon" src="Pics/searchbar_icon2.png" onclick="searchEnterHit()" />
+                    </div>
+                    <div id="homehits" class="hits"></div>
+                </div>
+            </div>
+            <a id="feedback-form" class="feedback green-btn" href="feedback-form.html" onclick="cancelModal()">Give
+                feedback!</a>
+        </div>
+        <!-- FOR ABOUT ME TAB -->
+        <div id="aboutpage" class="page">
+            <div class="center-title">
+                <p class="page-header">About Me</p>
+            </div>
+            <div class="right-side" id="important-stuff">
+                <p class="topic-header">Quick Information</p>
+                <a id="resume" class="subtopic about-link" href="GlossnerResumeCS.pdf" target="_blank" download
+                    title="Download">Download Resume</a>
+                <!-- Style this up -->
+                <p>Python, HTML/CSS, JavaScript, SQL/MySQL, PHP, Java, C, Bash</p>
+                <p>Linux/Debian/Ubuntu, Windows, MacOS</p>
+                <p>VS Code (and extensions), Python IDLE, Brackets, App Inventor, Vim</p>
+                <p>Apache 2, Google Compute Engine, Node.js</p>
+                <div class="quick-links">
+                    <p class="subtopic">Quick Links</p>
+                    <div class="quicklinks">
+                        <a class="nav-link" onclick="aboutGoto('bio')">Bio</a>
+                        <a class="nav-link" onclick="aboutGoto('education')">Education</a>
+                        <a class="indent nav-link" onclick="aboutGoto('cal')">Cal Poly</a>
+                        <a class="nav-link" onclick="aboutGoto('experience')">Experience</a>
+                        <a class="indent nav-link" onclick="aboutGoto('arb')">Arbiter</a>
+                        <a class="indent nav-link" onclick="aboutGoto('lab')">Lab Tech (OCOB)</a>
+                        <a class="nav-link" onclick="aboutGoto('involvement')">Involvment</a>
+                        <a class="indent nav-link" onclick="aboutGoto('jun')">Junior Samaritans</a>
+                        <a class="indent nav-link" onclick="aboutGoto('app')">App Dev Club</a>
+                        <a class="indent nav-link" onclick="aboutGoto('hac')">Hack4Impact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="left-side">
+                <div id="bio" class="topic">
+                    <p class="topic-header" onclick="toggleView('bio')"><img class="pulldown"
+                            src="Pics/triangle_icon2.png" /><span class="head">Bio</span></p>
+                    <div class="holder unshow">
+                        <p class="indent bio">Born August 20, 2000, I'm an 18 year old freshman. I've been programming
+                            since I was 15, when I took my first
+                            computer science course and fell in love with it. Since then, most of my experience has been
+                            through self-teaching.
+                            When I am not coding or at college, I enjoy time with my family and playing tennis with my
+                            brother.
+                        </p>
+                    </div>
+                </div>
+                <div id="education" class="topic">
+                    <p class="topic-header" onclick="toggleView('edu')"><img class="pulldown"
+                            src="Pics/triangle_icon2.png" /><span class="head">Education</span></p>
+                    <div class="holder unshow">
+                        <div class="indent edu" id="cal">
+                            <img src="Pics/polylogo.png" class="right about-image">
+                            <p class="subtopic">Cal Poly, SLO</p>
+                            <p class="indent">- I am currently attending California Polytechnic State University, San
+                                Luis Obispo</p>
+                            <p class="indent">- Freshman, Computer Science Major</p>
+                            <p class="indent">- Expected graduation date: June 2022</p>
+                            <p class="indent">- Cal Poly GPA: 3.963</p>
+                            <p class="indent">- Higher Ed GPA: 3.977</p>
+                            <p class="indent">- Major GPA: 4.0</p>
+                            <!-- Style this part up a bit -->
+                            <div class="indent">
+                                <p class="minor-topic">Relevant Coursework</p>
+                                <p class="indent">AP Computer Science A, Data Structures, Calc Series, Object-Oriented
+                                    Programming and Design, Intro to Computer Organization, Technical Writing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="experience" class="topic">
+                    <p class="topic-header" onclick="toggleView('exp')"><img class="pulldown"
+                            src="Pics/triangle_icon2.png" /><span class="head">Experience</span></p>
+                    <div class="holder unshow">
+                        <div class="indent exp" id="arb">
+                            <img src="Pics/arbiter.jpg" class="right about-image">
+                            <p class="subtopic">Intern Programmer, <a class="about-link" href="https://www.arbiter.com"
+                                    target="_blank">Arbiter Systems, Inc.</a> (June 2018 - September 2018)</p>
+                            <p class="indent">- Used a Raspberry Pi 3 and an Apache web server for network communication
+                            </p>
+                            <p class="indent">- Developed web GUIs for controlling two hardware devices</p>
+                            <p class="indent">- Used PHP and sockets to get data to and from hardware devices</p>
+                            <p class="indent">- Contributed in writing C applications/wrappers for the devices</p>
+                            <p class="indent">- Worked with MySQL databases for storing device data and made a web GUI
+                                for displaying data</p>
+                            <p class="indent minor-topic">HTML/CSS, JavaScript, MySQL, C, PHP, Linux/Debian</p>
+                        </div>
+                        <div class="indent exp" id="lab">
+                            <img src="Pics/ocob2.jpg" class="right about-image">
+                            <p class="subtopic">Lab Technician, Orfalea College of Business (OCOB), Cal Poly, SLO (2018
+                                - )</p>
+                            <p class="indent">- Help students and employees with tech problems and troubleshooting</p>
+                            <p class="indent">- Manage computer labs and helpdesk</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="involvement" class="topic">
+                    <p class="topic-header" onclick="toggleView('inv')"><img class="pulldown"
+                            src="Pics/triangle_icon2.png" /><span class="head">Involvement (Volunteer/Clubs</span>)</p>
+                    <div class="holder unshow">
+                        <div class="indent inv" id="jun">
+                            <!--<img src="Pics/jr-sam-logo-outlined_with-red.png" class="about-image right">-->
+                            <p class="subtopic"><a class="about-link" href="https://www.juniorsamaritans.org"
+                                    target="_blank">Junior Samaritans</a> (March 2015 - June 2018)</p>
+                            <p class="indent">- Scholar-run (&lt;18 yrs old) 501(c)(3) organization designed to help
+                                provide medical services
+                                to the people of San Quintin, Mexico</p>
+                            <p class="indent">Past positions: President, Secretary, Treasurer</p>
+                            <p class="indent">- Learned how to delegate tasks, run a meeting, record a meeting, record
+                                expenditures and donations, how to build a roof, and
+                                how to appreciate where I live</p>
+                            <p class="indent">- <a class="about-link" href="https://www.juniorsamaritans.org/alumni"
+                                    target="_blank" style="font-size: 1em;">My Profile</a></p>
+                        </div>
+                        <div class="indent inv" id="app">
+                            <p class="subtopic">App Development Club (2018 - )</p>
+                            <div class="indent">
+                                <img src="Pics/appdev.png" class="right about-image">
+                                <p class="minor-topic" style="text-decoration: none;"><span class="head">Social Media
+                                        Shopping App (2018 - </span>)</p>
+                                <p class="indent">- Working on the backend to develop the server for the connection
+                                    between the ViewController and the data</p>
+                                <p class="indent">- Coded Python files to create fake user data as JSON objects for -n-
+                                    amount of users that:
+                                    makes, deletes, and resets tables and creates/adds the JSON objects to the database
+                                </p>
+                                <p class="indent minor-topic">Node.js, Python, MySQL</p>
+                            </div>
+                        </div>
+                        <div class="indent inv" id="hac">
+                            <p class="subtopic">Hack4Impact (2018 - )</p>
+                            <div class="indent">
+                                <img src="Pics/h4i.png" class="right about-image">
+                                <p class="indent">- Programming a web app to help SLO CASA volunteers log their hours.
+                                </p>
+                                <!--<p class="indent">- Uses Django and ReactJS</p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FOR PROJECTS TAB -->
+        <div id="projectspage" class="page">
+            <div class="filter-section">
+                <p class="filter-header">Language Filter</p>
+                <table class="filter-table" align="center">
+                    <tr class="filter-row">
+                        <td><input id="HTML/CSS-check" class="filter-check" type="checkbox"
+                                onclick="checkboxChanged(this.id)"><label>HTML/CSS</label></td>
+                        <td><input id="PHP-check" class="filter-check" type="checkbox"
+                                onclick="checkboxChanged(this.id)"><label>PHP</label></td>
+                        <td><input id="Arduino-check" class="filter-check" type="checkbox"
+                                onclick="checkboxChanged(this.id)"><label>Arduino</label></td>
+                        <td><input id="MySQL-check" class="filter-check" type="checkbox"
+                                onclick="checkboxChanged(this.id)"><label>MySQL</label></td>
+                    </tr>
+                    <tr class="filter-row">
+                        <td><input id="JavaScript-check" class="filter-check" type="checkbox"
+                                onclick="checkboxChanged(this.id)"><label>JavaScript</label></td>
+                        <td><input id="C-check" class="filter-check" type="checkbox"
+                                onclick="checkboxChanged(this.id)"><label>C</label></td>
+                        <td><input id="Java-check" class="filter-check" type="checkbox"
+                                onclick="checkboxChanged(this.id)"><label>Java</label></td>
+                        <td><input id="Python-check" class="filter-check" type="checkbox"
+                                onclick="checkboxChanged(this.id)"><label>Python</label></td>
+                        <td><button id="all-check" class="right-side-but basic-colored-but"
+                                onclick="filterAll()">All</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="switch-holder">
+                <label class="switch">
+                    <input type="checkbox" id="display-proj-type" onchange="projTypeSwitch()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="whole-search">
+                <div id="projsearch" class="search">
+                    <input id="proj_search" type="text" onkeydown="setUpProjHits(event)"
+                        placeholder="Search Description keywords" onfocus="setUpProjHits(0)">
+                </div>
+                <div id="projhits" class="hits"></div>
+            </div>
+            <div class="center-title">
+                <p class="page-header">My Projects</p>
+                <p class="fit-p">Visit my github for most of these projects at: <a class="link-enlarge"
+                        href="https://github.com/bglossner" target="_blank">github.com/bglossner</a>
+                    <br><br>Click on the project titles to view associated files!</p>
+                <p id="search-result"></p>
+            </div>
+            <div class="projects">
+                <div class="overview">
+                    <button class="exit" onclick="exit(this)">X</button>
+                    <button id="slideshow-go-back-button" class="slideshow-move-button" onclick="showBehind()">&#8678;</button>
+                    <button id="slideshow-go-forward-button" class="slideshow-move-button" onclick="showForward()">&#8680;</button>
+                    <div class="num-indicator"></div>
+                </div>
+                <table class="basictable">
+                    <tr>
+                        <th class="projname">Project</th>
+                        <th class="projdesc">Description</th>
+                        <th class="projlang">Languages</th>
+                    </tr>
+                    <tr id="graph-ui">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/graph_gui.PNG"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/GraphUI.html" target="_blank">Graphing Web UI</a></td>
+                        <td class="projdesc">This graphing UI allows the user to insert data maunally or with a <span
+                                class="keyphrase">CSV file</span>. The graph
+                            <span class="keyphrase">auto-scales</span> and deals with <span class="keyphrase">multiple
+                                lines</span>
+                            with many options for displaying and manipulating the graph.
+                        </td>
+                        <td class="projlang">HTML/CSS, JavaScript</td>
+                    </tr>
+                    <tr id="arbiter-stuff">
+                        <td id="arbiter-data" class="projname"><a onclick="toggleArbiter(this)">
+                                <img class="pulldown" src="Pics/triangle_icon2.png" />Arbiter Projects</a></td>
+                        <td class="projdesc">At an internship, I replicated and extended upon two devices of Arbiter
+                            Systems, Inc. This was done
+                            to allow <span class="keyphrase">socket communication</span> over a network, rather than
+                            through actual
+                            button pressing, allowing for remote control of the hardware.
+                        </td>
+                        <td class="projlang">C, HTML/CSS, JavaScript, MySQL, PHP, Python</td>
+                    </tr>
+                    <tr id="pmc" class="arbiter-specific">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/pmc.png"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/Arbiter/PMC_Web_UI.html" target="_blank">PMC Web UI</a></td>
+                        <td class="projdesc">Replicates a PMC (Panel Meter Calibrator) and sends data to a raspberry pi
+                            through a socket and then
+                            updates the page based on the response (through <span
+                                class="keyphrase">AJAX/XMLHttpRequest</span>).
+                        </td>
+                        <td class="projlang">HTML/CSS, JavaScript</td>
+                    </tr>
+                    <tr id="moats" class="arbiter-specific">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/moats.PNG"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/Arbiter/moatscomms.html" target="_blank">MOATS Web UI</a></td>
+                        <td class="projdesc">Replicates a MOATS device and sends data to a raspberry pi through a socket
+                            and then
+                            updates the page based on the response (green LEDs on UI turn on/off based on feedback
+                            (through <span class="keyphrase">AJAX/XMLHttpRequest</span> and <span class="keyphrase">POST
+                                requests</span>).
+                        </td>
+                        <td class="projlang">HTML/CSS, JavaScript</td>
+                    </tr>
+                    <tr id="process-php" class="arbiter-specific">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/arbiter_php.PNG"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/Arbiter/process_conn_combo2.php" target="_blank">Processor Script</a></td>
+                        <td class="projdesc">Deals with creating the socket connection, creating a <span
+                                class="keyphrase">binary (packed binary string) message</span> with
+                            an <span class="keyphrase">associative array</span> and a <span
+                                class="keyphrase">checksum</span>, and then processing received
+                            binary data and sending it back to the appropriate web page.
+                        </td>
+                        <td class="projlang">PHP</td>
+                    </tr>
+                    <tr id="c-files" class="arbiter-specific">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/c_database.PNG"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/Arbiter/C%20Files/" target="_blank">C Database Files</a></td>
+                        <td class="projdesc">Makes tables and inserts data into <span class="keyphrase">MySQL tables in
+                                C</span>.
+                            For inserting high precision (7 decimal place float values) into the appropraite table. Used
+                            in another C file not included.
+                            Includes <span class="keyphrase">.c and .h files</span>.
+                        </td>
+                        <td class="projlang">C, MySQL</td>
+                    </tr>
+
+                    <tr id="led_chair">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/chair.PNG"
+                                onmouseover="showImageOnHover(this.src,true,'Videos/chroma_video.mp4')"
+                                onmouseout="hideImageShower()" />
+                            <a href="Projects/Arduino/Chair/led_chair.ino" target="_blank">Razer LED Chair</a></td>
+                        <td class="projdesc">High school project. Its main feature is to emulate Razer's chroma feature.
+                            It uses Dotstar <span class="keyphrase">
+                                LED strip</span>, <span class="keyphrase">Arduino Uno</span>, <span
+                                class="keyphrase">HC-05 Bluetooth module</span>, and a protoboard.
+                            I built a <span class="keyphrase">circuit</span>, programmed the Arduino, and developed an
+                            app (<span class="keyphrase">App Inventor</span>)
+                            to control the LED strip from my phone.
+                            <a class="dir-link"
+                                href="https://drive.google.com/drive/folders/1QefSAMX_Q9dNXx2kRESiVpNYZ-T0uIkG?usp=sharing"
+                                target="_blank">Click here to see pictures!</a>
+                        </td>
+                        <td class="projlang">ArduinoC, Java/App Inventor</td>
+                    </tr>
+                    <tr id="py-calc">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/python-calc.PNG"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/Python Projects/Calculator/" target="_blank">General Calculator</a></td>
+                        <td class="projdesc">This calculator has different modes to calculate: expressions in <span
+                                class="keyphrase">PEMDAS</span>,
+                            expressions using the distributive property, statistical data, and factors of binomial
+                            expressions.
+                        </td>
+                        <td class="projlang">Python</td>
+                    </tr>
+                    <tr id="java-calc">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/calc2.PNG"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/Factoring Calc/" target="_blank">Factoring Calculator</a></td>
+                        <td class="projdesc">Final project in AP CS in high school. This calculator comes with a <span
+                                class="keyphrase">GUI</span>
+                            and factors binomials like a high schooler would using common denominators. The <span
+                                class="keyphrase">GUI</span> is based
+                            on Java's basic libraries (JFrame, JButton, actionListener...).
+                            <a class="dir-link"
+                                href="https://drive.google.com/drive/folders/1xohV4s2-FXRgEdiB6JXxJt3xJ6ZUDXra?usp=sharing"
+                                target="_blank">Click here to see pictures!</a>
+                        </td>
+                        <td class="projlang">Java</td>
+                    </tr>
+                    <tr id="py-projs">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/base_conv.PNG"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/Python Projects/Basic Ones/" target="_blank">Fun Python Programs</a></td>
+                        <td class="projdesc">These projects are simple and fun, requiring little time but are good
+                            practice for learning Python. They include
+                            a base converter, Hangman, Tic-Tac-Toe, a basic encryption program, two Rock-Paper-Scissors
+                            programs, and a Pascal Triangle generator.
+                        </td>
+                        <td class="projlang">Python</td>
+                    </tr>
+                    <tr id="python-pdf">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/pdf.png"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/PDF%20Files/" target="_blank">PDF Generator</a></td>
+                        <td class="projdesc">Used for <span class="keyphrase">Arbiter</span> to make PDFs from given
+                            data. Unfinished but the PDF's format
+                            for multiple tests is completely done. Each is manually coded to deal with 6 different
+                            tests. See the actual PDFs
+                            <a class="dir-link" href="Projects/PDF%20Files/" target="_blank">here</a>.
+                        </td>
+                        <td class="projlang">Python</td>
+                    </tr>
+                    <tr id="pydatabase">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/py_database.PNG"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/Python%20Database/" target="_blank">Database Manipulation</a></td>
+                        <td class="projdesc">Used for <span class="keyphrase">Arbiter</span> to create <span
+                                class="keyphrase">MySQL tables</span>, as well as
+                            alter, delete, and parse those tables (make into a <span class="keyphrase">CSV file</span>
+                            after).
+                        </td>
+                        <td class="projlang">Python, MySQL</td>
+                    </tr>
+                    <tr id="apps">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/connect4.png"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/APKs/Games/" target="_blank">Simple Android Apps</a></td>
+                        <td class="projdesc">I created a few simple games using <span class="keyphrase">App
+                                Inventor</span> for my <span class="keyphrase">
+                                Android phone</span> specifically. They were a fun way to develop skills in <span
+                                class="keyphrase">algorithms</span>. Games include: Connect 4,
+                            Tic-Tac-Toe, Hangman, a Reaction Tester, and Dots and Boxes.
+                            <a class="dir-link"
+                                href="https://drive.google.com/drive/folders/1TLm0B9KWKzvkIqJ3-AO5GPiYWPNwY1vB?usp=sharing"
+                                target="_blank">Click here to see pictures!</a></td>
+                        <td class="projlang">Java</td>
+                    </tr>
+                    <tr id="car">
+                        <td class="projname">
+                            <img class="thumbnail" src="Pics/Thumbnails/car.PNG"
+                                onmouseover="showImageOnHover(this.src)" onmouseout="hideImageShower()" />
+                            <a href="Projects/Arduino/Car_Project/" target="_blank">Gesture RC Car</a></td>
+                        <td class="projdesc">With help from an Instructable, I created a <span
+                                class="keyphrase">hand-gesture controlled</span>
+                            RC car using two <span class="keyphrase">Arduino Unos</span>, a RC car, two <span
+                                class="keyphrase">HC-05 Bluetooth
+                                modules</span> for <span class="keyphrase">master/slave communication</span>, and a
+                            6-axis <span class="keyphrase">
+                                accelerometer</span>.<a class="dir-link"
+                                href="https://drive.google.com/drive/folders/1GjoeMmMCFYjtJdg5ZrnsxklLvLSdplXs?usp=sharing"
+                                target="_blank">Click here to see pictures!</a></td>
+                        <td class="projlang">ArduinoC, Java</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- FOR CONTACT TAB -->
+        <div id="contactpage" class="page">
+            <div class="center-holder">
+                <img src="Pics/contacts.png">
+                <div id="myinfo">
+                    <p class="left"><img src="Pics/gmail2.png" class="contacticon" />Email</p>
+                    <a class="right link-enlarge" href="mailto:benglossner@gmail.com"
+                        target="_blank">benglossner@gmail.com</a>
+                    <br>
+                    <hr><br>
+                    <p class="left"><img src="Pics/linkedin2.png" class="contacticon" />Linkedin</p>
+                    <a class="right link-enlarge" href="https://www.linkedin.com/in/benjamin-glossner"
+                        target="_blank">linkedin.com/in/benjamin-glossner</a>
+                    <br>
+                    <hr><br>
+                    <p class="left"><img src="Pics/github2-2.png" class="contacticon" />GitHub</p>
+                    <a class="right link-enlarge" href="https://github.com/bglossner"
+                        target="_blank">github.com/bglossner</a>
+                    <br>
+                    <hr><br>
+                    <p class="left"><img src="Pics/phone2.jpg" class="contacticon" />Phone</p>
+                    <a class="right">(805) 610-6696</a>
+                    <br>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p><span id="spanyear"></span>&nbsp; --&nbsp; Ben Glossner. All handmade with no template. Hosted on Google's
+            Compute Engine!&nbsp; -- &nbsp;Thanks for visiting!</p>
+    </div>
+    <div id="image-shower">
+        <!--<img id="in-image-shower" />-->
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <p class="modal-text">Leave a quick review?</p>
+            <button class="green green-btn modal-but" onclick="review(true)">Yes</button>
+            <button class="red modal-but" onclick="review(false)">No</button>
+        </div>
+    </div>
+    <script src="footer.js"></script>
+</body>
+
+</html>

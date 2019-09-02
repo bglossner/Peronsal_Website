@@ -1,0 +1,1 @@
+document.getElementById("spanyear").innerHTML = (new Date().getYear() + 1900).toString()

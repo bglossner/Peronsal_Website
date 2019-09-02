@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="feedback.css">
+        <script src="feedback.js"></script>
+        <link rel="shortcut icon" href="Pics/ben-favicon.png">
+        <title>Ben Glossner</title>
+    </head>
+    <body>
+        <h1>Feedback Form</h1>
+        <div id="main">
+            <p>Please fill out as many fields as you feel appropriate. Thank you!</p>
+            <p class="inline" style="color:red">*</p><p class="inline">&nbsp;&nbsp;=&nbsp;&nbsp; Required</p>
+            <!--<form id="main-form" action="feedback_process.php" method="POST" target="_blank">-->
+            <br><label for="email" class="add-pad">Email:</label>
+            <input class="larger-text" type="text" name="email">
+            <p class="ques" onmouseover="quesHover(this)">?
+                <span class="popuptext">This is optional but would really help me!</span>
+            </p><br>
+
+            <label for="firstname" class="add-pad">First name:</label>
+            <input class="larger-text" type="text" name="firstname">
+            <p class="ques" onmouseover="quesHover(this)">?
+                <span class="popuptext">This is optional but would really help me!</span>
+            </p><br>
+
+            <label for="lastname" class="add-pad">Last name:</label>
+            <input class="larger-text" type="text" name="lastname">
+            <p class="ques" onmouseover="quesHover(this)" style="margin-bottom: 2em;">?
+                <span class="popuptext">This is optional but would really help me!</span>
+            </p><br>
+
+            <label for="rating">Rate my Website Quickly:</label>
+            <div class="whole center" id="radios">
+                <div><label>Bad</label><input type="radio" value="bad" onclick="radioHit(this)"></div>
+                <div><label>Eh</label><input type="radio" value="eh" onclick="radioHit(this)"></div>
+                <div><label>Okay</label><input type="radio" value="okay" onclick="radioHit(this)"></div>
+                <div><label>Good</label><input type="radio" value="good" onclick="radioHit(this)"></div>
+                <div><label>So Close!</label><input type="radio" value="close" onclick="radioHit(this)"></div>
+                <div><label>Perfect</label><input type="radio" value="perfect" title=":)" onclick="radioHit(this)" id="perf" checked></div>
+                <p class="ast">*</p>
+            </div>
+
+            <div class="whole" id="places">
+                <p id="notification"></p>
+                <label for="place-selector" class="add-pad">Provide Areas Needing Improvement:</label>
+                <select id="place-selector" default="Everywhere" onchange="openSpec()">
+                    <option value="Everywhere">Everywhere</option>
+                    <option value="About Page">About Page</option>
+                    <option value="Contact Page">Contact Page</option>
+                    <option value="Feedback Form">Feedback Form</option>
+                    <option value="Homepage">Homepage</option>
+                    <option value="Projects Page">Projects Page</option>
+                </select>
+                <input id="spec" type="text" name="place-specifier" onkeydown="pressed(this.value, event)" placeholder="Where Exactly? <13 chars" onblur="specBlurred(this.value); return false;">
+                <p class="ast">*</p>
+            </div>
+
+            <div class="whole" id="place-table">
+                <!--<div class="place-row" style="display: none;">
+                    <a class="delete"></a>
+                    <p>Place Name</p>
+                    <div class="reason-div">Error/Problem with Area</div>
+                </div>-->
+            </div><br>
+            <div id="additional-info">
+                <textarea id="add-info-text" rows="3" placeholder="Write comments about the given area you selected here"></textarea>
+                <button type="button" class="add-info-but green" onclick="addInfoSubmit()">Enter</button>
+                <button type="button" class="add-info-but red" onclick="addInfoCancel()">Cancel</button>
+            </div><br>
+
+            <div id="comment-div">
+                <label>Additional Comments on the website:</label><br>
+                <textarea id="comments" rows="10"></textarea><br>
+            </div>
+            <div id="button-div" style="width: 80%; text-align: center;">
+                <button id="submit-but" onclick="formSubmission()">Submit Form</button>
+            </div>
+            <!--</form>-->
+        </div>
+    </body>
+</html>

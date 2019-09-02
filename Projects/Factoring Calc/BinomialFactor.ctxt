@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=BinomialFactor
+comment1.params=bV\ cV
+comment1.target=BinomialFactor(int,\ int)
+comment2.params=
+comment2.target=void\ findXValueBC()
+comment2.text=\r\n\ Creates\ and\ sets\ a\ and\ b\ values\ based\ on\ the\ equation\ (x\ +\ a)(x\ +\ b).\r\n
+comment3.params=
+comment3.target=int\ getValue()
+comment3.text=\r\n\ Returns\ the\ absolute\ value\ of\ firstNum.\r\n\ @returns\ \ \ \ \ Positive\ integer\ value\ of\ firstNum.\r\n
+comment4.params=
+comment4.target=int\ getOtherValue()
+comment4.text=\r\n\ Returns\ the\ absolute\ value\ of\ secondNum\r\n\ @returns\ \ \ \ \ Positive\ integer\ value\ of\ secondNum.\r\n
+comment5.params=
+comment5.target=java.lang.String\ sign()
+comment5.text=\r\n\ Returns\ the\ sign\ of\ firstNum.\r\n\ @returns\ \ \ \ \ String\ "+"\ or\ "-"\ depending\ on\ if\ firstNum\ is\ positive\ or\ negative.\r\n
+comment6.params=
+comment6.target=java.lang.String\ otherSign()
+comment6.text=\r\n\ Returns\ the\ sign\ of\ secondNum.\r\n\ @returns\ \ \ \ \ String\ "+"\ or\ "-"\ depending\ on\ if\ secondNum\ is\ positive\ or\ negative.\r\n
+comment7.params=
+comment7.target=java.lang.String\ toStringForBF()
+comment7.text=\r\n\ Returns\ String\ of\ of\ (x\ +\ a)(x\ +\ b)\ based\ on\ the\ signs\ and\ values\ of\ firstNum\ and\ secondNum.\r\n\ @return\ \ \ \ \ \ String\ of\ (x\ (sign)\ firstNum)(x\ (sign)\ (secondNum)).\r\n
+numComments=8

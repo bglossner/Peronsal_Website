@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=FindFactorAnswers
-comment1.params=jText\ strr
-comment1.target=FindFactorAnswers(javax.swing.JTextField,\ java.lang.String)
-comment2.params=
-comment2.target=QuadFunc\ arithAnswer()
-comment2.text=\r\n\ Returns\ integer\ answer(s)\ based\ on\ the\ a,\ b,\ and\ c\ values\ put\ into\ QuadFunc\ by\ using\ the\ quadratic\ equation.\r\n\ @return\ \ \ \ \ \ QuadFunc\ of\ answers.\r\n
-numComments=3

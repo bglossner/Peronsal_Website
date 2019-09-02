@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=BPad
-comment1.params=
-comment1.target=BPad()
-comment2.params=e
-comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
-comment2.text=\r\n\ From\ the\ implemented\ class\ ActionListener.\r\n\ Checks\ up\ on\ the\ charge\ of\ the\ calculator,\ and\ based\ on\ that,\ will\ continue\ on\ with\ the\ method\r\n\ \ \ \ \ or\ will\ show\ a\ message\ to\ the\ user\ reporting\ if\ the\ charge\ is\ either\ under\ 15\ as\ a\ warning,\ or\ if\r\n\ \ \ \ \ at\ 0\ it\ will\ display\ a\ warning\ and\ the\ calculator\ will\ no\ longer\ function.\ If\ above\ 0,\ the\r\n\ \ \ \ \ calculator\ will\ display\ whatever\ it\ receives\ from\ onScreen\ and\ will\ set\ the\ screen's\ text\ to\r\n\ \ \ \ \ whatever\ it's\ asked\ of,\ depending\ on\ the\ received\ text.\r\n\ @param\ e\ \ \ \ \ \ ActionEvent\ performed.\ What\ button\ is\ pressed.\r\n
-numComments=3

@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=boolean\ connectedToCharger()
-comment0.text=\r\n\ Returns\ true\ if\ connected\ to\ charger,\ false\ otherwise.\r\n\ @return\ \ true\ or\ false\ based\ on\ connection\r\n
-comment1.params=
-comment1.target=boolean\ isOn()
-comment1.text=\r\n\ Returns\ true\ if\ calculator\ is\ on,\ false\ otherwise\r\n\ @return\ \ true\ or\ false\ whether\ on\ or\ off\r\n
-numComments=2

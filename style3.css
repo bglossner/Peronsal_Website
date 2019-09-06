@@ -213,8 +213,8 @@ a.feedback {
 }
 
 .green-btn {
-    opacity: 0.9;
-    box-shadow: 0 2px 2px 0 rgba(76, 175, 80, 0.14), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12);
+    opacity: 1.9;
+    box-shadow: 1 2px 2px 0 rgba(76, 175, 80, 0.14), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12);
 }
 
 .green-btn:hover {
@@ -371,6 +371,37 @@ div.hits {
 
 .highlight {
     background-color: yellow;
+}
+
+.advanced-highlight {
+    background-color: yellow;
+    -webkit-animation-name: highlighter; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: highlighter;
+    animation-duration: 1.5s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes highlighter {
+    from {
+        background-color: white;
+    }
+    to {
+        background-color: yellow;
+    }
+}
+
+/* Standard syntax */
+@keyframes highlighter {
+    0% {
+        background-color: white;
+    }
+    50% {
+        background-color: yellow;
+    }
+    100% {
+        background-color: yellow;
+    }
 }
 
 #projhits {

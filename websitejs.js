@@ -326,11 +326,13 @@ function toggleSidebar()
     {
         sidebar.style.width = 0;
         barImg.style.transform = "rotate(0deg)";
+        // document.getElementById("bars").style.backgroundColor = "transparent";
     }
     else
     {
         sidebar.style.width = "10%";
         barImg.style.transform = "rotate(-90deg)";
+        // document.getElementById("bars").style.backgroundColor = "hsl(140, 25%, 40%)";
     }
 }
 
@@ -399,7 +401,7 @@ function toggleGeneralProject(linkObj) {
 
 function toggleView(cName)
 {
-    console.log("VIEW CHANGE")
+    // console.log("VIEW CHANGE")
     let currView = [...document.getElementsByClassName(cName)];
     let arrow = currView[0].parentNode.parentNode.getElementsByClassName("pulldown")[0];
     let divObj = currView[0].parentNode;
@@ -422,9 +424,31 @@ function toggleView(cName)
     divObj.parentNode.replaceChild(newObj, divObj);
 }
 
+function highlightLocation(element) {
+    element.classList.toggle('advanced-highlight');
+    console.log(element);
+    setTimeout(() => {
+        element.classList.toggle('advanced-highlight');
+    }, 1500);
+}
+
+function goAndHighlightLocation(str, elementToHightlight) {
+    window.location.hash = `#${str}`;
+    highlightLocation(elementToHightlight);
+}
+
 function aboutGoto(str)
 {
-    let parents = ['bio', 'education', 'experience', 'involvement']
+    let parents = ['bio', 'education', 'experience', 'involvement'];
+    let parentElementToHightlight = document.getElementById(str);
+    var elementToHightlight;
+    if (parentElementToHightlight.classList.contains('topic')) {
+        elementToHightlight = parentElementToHightlight.querySelector('.topic-header .head');
+    }
+    /* else {
+        elementToHightlight = parentElementToHightlight.getElementsByClassName('subtopic')[0];
+    } */
+
     if(!parents.includes(str))
     {
         let child = document.getElementById(str);
@@ -435,15 +459,14 @@ function aboutGoto(str)
             //console.log("here");
             //console.log(pars.classList[1]);
             toggleView(child.classList[1]);
+            elementToHightlight = document.getElementById(str).getElementsByClassName('subtopic')[0];
             setTimeout(() => {
-                window.location.hash = `#${str}`;
+                goAndHighlightLocation(str, elementToHightlight);
             }, 1000);
             return;
         }
     }
-    
-    window.location.hash = `#${str}`;
-    
+    goAndHighlightLocation(str, elementToHightlight);
 }
 
 function gotoArea(id)
@@ -473,6 +496,10 @@ function aboutPageChange()
         toggleView('bio');
         firstVisit = false;
     }
+}
+
+function setCorrectAge() {
+    document.getElementById("age").innerHTML = getMyAge(2000, 7, 19).toString();
 }
 
 var filterChecks = [];
@@ -505,6 +532,7 @@ window.onload = function() {
     }, 1000); */
     setupSlideshow();
     colorProjectsTable();
+    setCorrectAge();
 }
 
 
@@ -1111,5 +1139,6 @@ function projTypeSwitch() {
     }
 }
 
-function getMyAge(date_born) {
+function getMyAge(year, month, day) {
+    return (new Date((new Date()) - (new Date(year, month, day))).getFullYear() - 1970);
 }

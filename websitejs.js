@@ -29,18 +29,75 @@ function changeDisp(id, to)
     document.getElementById(id).style.display = to;
 }
 
-/**
- * Key: Title
- * Value as list:
- *  [Media link, description, is video, is portrait]
- */
+var possibleEntries = {
+    "about me" : "aboutpage",
+    "age" : "bio", 
+    "app development" : "projectspage",
+    "app development club" : "app", 
+    "App Inventor" : "projectspage",
+    "Arduino" : "Arduino-check",
+    "bio" : "bio",
+    "C" : "C-check", 
+    "cal poly" : "cal", 
+    "class" : "college-class-major",
+    "clubs" : "involvement",
+    "college" : "cal", 
+    "community service" : "involvement",
+    "contact info" : "myinfo",
+    "CSS" : "HTML/CSS-check",
+    "database" : "SQL-check",
+    "date of birth" : "bio", 
+    "dob" : "bio",
+    "education" : "education",
+    "email" : "contact-email",
+    "environments" : "environments",
+    "experience" : "experience",
+    "feedback form" : "feedback-form",  
+    "github" : "contact-github",
+    "graduation date" : "expected-grad-date",
+    "hack4impact" : "hac",
+    "home" : "homepage",
+    "HTML" : "HTML/CSS-check",
+    "HTML/CSS" : "HTML/CSS-check", 
+    "IDEs and text editors" : "ides-and-editors",
+    "important info" : "important-stuff",
+    "internships" : "experience",
+    "Java" : "Java-check",
+    "JavaScript" : "JavaScript-check",
+    "JS" : "JavaScript-check",
+    "junior samaritans" : "jun", 
+    "linkedin" : "contact-linkedin",
+    "languages" : "languages",
+    "leadership" : "involvement",
+    "MySQL" : "SQL-check",
+    "NodeJS" : "aboutpage",
+    "operating systems" : "operating-systems", 
+    "phone" : "contact-phone",
+    "PHP" : "PHP-check",
+    "programming languages" : "languages",
+    "projects" : "actual-projects",
+    "python" : "Python-check",
+    "quick links" : "quicklinks",
+    "resume" : "resume", 
+    "review" : "feedback-form",
+    "SQL" : "SQL-check",
+    "text-editors" : "ides-and-editors",
+    "volunteer" : "involvement", 
+    "work experience" : "experience"
+};
 
 var keyphrases = [
     "CSV file", "auto-scales", "LED strip", "Arduino", "HC-05 Bluetooth Module", "protoboard", "circuit",
     "app", "App Inventor", "PEMDAS", "statistical", "infix", "RPN", "GUI", "Java", "libraries", "JFrame",
     "Arbiter", "PDF", "SQL", "MySQL", "tables", "hand-gesture controlled", "RC", "master/slave communication",
     "accelerometer"
-]
+];
+
+/**
+ * Key: Title
+ * Value as list:
+ *  [Media link, description, is video, is portrait]
+ */
 
 var basicSlideshowObj = {   
     "Graph UI" : ["Pics/Thumbnails/graph_gui.PNG",
@@ -429,7 +486,7 @@ function highlightLocation(element) {
     console.log(element);
     setTimeout(() => {
         element.classList.toggle('advanced-highlight');
-    }, 1500);
+    }, 2000);
 }
 
 function goAndHighlightLocation(str, elementToHightlight) {
@@ -440,13 +497,10 @@ function goAndHighlightLocation(str, elementToHightlight) {
 function aboutGoto(str)
 {
     let parents = ['bio', 'education', 'experience', 'involvement'];
-    let parentElementToHightlight = document.getElementById(str);
-    var elementToHightlight;
-    if (parentElementToHightlight.classList.contains('topic')) {
+    //let parentElementToHightlight = document.getElementById(str);
+    var elementToHightlight = document.getElementById(str);
+    /* if (parentElementToHightlight.classList.contains('topic')) {
         elementToHightlight = parentElementToHightlight.querySelector('.topic-header .head');
-    }
-    /* else {
-        elementToHightlight = parentElementToHightlight.getElementsByClassName('subtopic')[0];
     } */
 
     if(!parents.includes(str))
@@ -459,9 +513,9 @@ function aboutGoto(str)
             //console.log("here");
             //console.log(pars.classList[1]);
             toggleView(child.classList[1]);
-            elementToHightlight = document.getElementById(str).getElementsByClassName('subtopic')[0];
+            //elementToHightlight = document.getElementById(str).getElementsByClassName('subtopic')[0];
             setTimeout(() => {
-                goAndHighlightLocation(str, elementToHightlight);
+                goAndHighlightLocation(str, document.getElementById(str));
             }, 1000);
             return;
         }
@@ -480,7 +534,13 @@ function gotoArea(id)
     
     let pageId = tmp.id;
     openPage(pageId.substring(0, pageId.length - 4));
-    window.location.hash = `#${id}`;
+    if (pageId == "aboutpage") {
+        aboutGoto(id);
+    }
+    else {
+        let elementToHightlight = document.getElementById(id);
+        goAndHighlightLocation(id, elementToHightlight);
+    }
     document.getElementById("text_search").value = "";
     hideHits();
 }
@@ -534,40 +594,6 @@ window.onload = function() {
     colorProjectsTable();
     setCorrectAge();
 }
-
-
-var possibleEntries = {
-    "projects" : "projectspage",
-    "contact info" : "contactpage",
-    "about me" : "aboutpage",
-    "resume" : "resume", "links" : "aboutpage", "quick links" : "aboutpage",
-    "education" : "education",
-    "experience" : "experience", "work experience" : "experience", "internships" : "experience",
-    "volunteer" : "involvement", "junior samaritans" : "involvement", "leadership" : "involvement",
-    "clubs" : "involvement", "app development club" : "involvement", "hack4imapct" : "involvement",
-    "community service" : "involvement",
-    "age" : "bio", "date of birth" : "bio", "dob" : "bio",
-    "languages" : "aboutpage",
-    "python" : "projectspage",
-    "html" : "projectspage", "HTML/CSS" : "projectspage", "CSS" : "projectspage",
-    "JS" : "projectspage", "JavaScript" : "projectspage",
-    "MySQL" : "projectspage", "database" : "projectspage",
-    "SQL" : "projectspage", "database" : "projectspage",
-    "PHP" : "projectspage", "NodeJS" : "aboutpage",
-    "IDEs" : "aboutpage", "operating systems" : "aboutpage", "environments" : "projectspage",
-    "C" : "projectspage", "Arduino" : "projectspage", "Java" : "projectspage",
-    "App Inventor" : "projectspage", "app development" : "projectspage",
-    "name" : "aboutpage",
-    "home" : "homepage",
-    "important" : "important-stuff",
-    "email" : "contactpage",
-    "github" : "contactpage",
-    "phone" : "contactpage",
-    "linkedin" : "contactpage",
-    "college" : "education", "cal poly" : "education", "graduation date" : "education",
-    "class" : "education",
-    "feedback form" : "feedback-form", "review" : "feedback-form"
-};
 
 function getHomeSearchHits(phrase)
 {
@@ -752,6 +778,7 @@ var doingSomething = false;
 var toggle = false;
 function filterAll()
 {
+    doingSomething = true;
     if(doingSomething)
     {
         alert("Please wait for previous action to finish. Thank you.");
@@ -824,6 +851,8 @@ function checkboxChanged(name, allHit)
             }
         }
     }
+
+    colorProjectsTable();
 }
 
 // Get all the red words in the projects

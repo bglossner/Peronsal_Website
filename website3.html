@@ -58,13 +58,13 @@
                 <a id="resume" class="subtopic about-link" href="GlossnerResumeCS.pdf" target="_blank" download
                     title="Download">Download Resume</a>
                 <!-- Style this up -->
-                <p>Python, HTML/CSS, JavaScript, SQL, SQL Server, MySQL, PHP, Java, C, Bash</p>
-                <p>Linux/Debian/Ubuntu, Windows/Microsoft Workflow, MacOS</p>
-                <p>Vim, VS Code (and extensions), Python IDLE, Brackets, SSMS</p>
-                <p>Apache 2, Google Compute Engine, Node.js, PowerApps, App Inventor</p>
+                <p id="languages">Python, HTML/CSS, JavaScript, SQL, SQL Server, MySQL, PHP, Java, C, Bash</p>
+                <p id="operating-systems">Linux/Debian/Ubuntu, Windows/Microsoft Workflow, MacOS</p>
+                <p id="ides-and-editors">Vim, VS Code (and extensions), Python IDLE, Brackets, SSMS</p>
+                <p id="environments">Apache 2, Google Compute Engine, Node.js, PowerApps, App Inventor</p>
                 <div class="quick-links">
                     <p class="subtopic">Quick Links</p>
-                    <div class="quicklinks">
+                    <div id="quicklinks" class="quicklinks">
                         <a class="nav-link" onclick="aboutGoto('bio')">Bio</a>
                         <a class="nav-link" onclick="aboutGoto('education')">Education</a>
                         <a class="indent nav-link" onclick="aboutGoto('cal')">Cal Poly</a>
@@ -100,8 +100,8 @@
                         <div class="indent edu" id="cal">
                             <img src="Pics/polylogo.png" class="right about-image">
                             <p class="subtopic">Cal Poly, SLO</p>
-                            <p class="indent">- Sophomore, Computer Science Major</p>
-                            <p class="indent">- Expected graduation date: June 2022</p>
+                            <p id="college-class-major" class="indent">- Sophomore, Computer Science Major</p>
+                            <p id="expected-grad-date" class="indent">- Expected graduation date: June 2022</p>
                             <p class="indent">- Cal Poly GPA: 3.973</p>
                             <p class="indent">- Higher Ed GPA: 3.982</p>
                             <p class="indent">- Major GPA: 4.0</p>
@@ -248,7 +248,7 @@
                     <br><br>Click on the project titles to view associated files!</p>
                 <p id="search-result"></p>
             </div>
-            <div class="projects">
+            <div id="actual-projects" class="projects">
                 <div class="overview">
                     <button class="exit" onclick="exit(this)">X</button>
                     <button id="slideshow-go-back-button" class="slideshow-move-button" onclick="showBehind()">&#8678;</button>
@@ -497,22 +497,22 @@
                 <img src="Pics/contacts.png">
                 <div id="myinfo">
                     <p class="left"><img src="Pics/gmail2.png" class="contacticon" />Email</p>
-                    <a class="right link-enlarge" href="mailto:benglossner@gmail.com"
+                    <a id="contact-email" class="right link-enlarge" href="mailto:benglossner@gmail.com"
                         target="_blank">benglossner@gmail.com</a>
                     <br>
                     <hr><br>
                     <p class="left"><img src="Pics/linkedin2.png" class="contacticon" />Linkedin</p>
-                    <a class="right link-enlarge" href="https://www.linkedin.com/in/benjamin-glossner"
+                    <a id="contact-linkedin" class="right link-enlarge" href="https://www.linkedin.com/in/benjamin-glossner"
                         target="_blank">linkedin.com/in/benjamin-glossner</a>
                     <br>
                     <hr><br>
                     <p class="left"><img src="Pics/github2-2.png" class="contacticon" />GitHub</p>
-                    <a class="right link-enlarge" href="https://github.com/bglossner"
+                    <a id="contact-github" class="right link-enlarge" href="https://github.com/bglossner"
                         target="_blank">github.com/bglossner</a>
                     <br>
                     <hr><br>
                     <p class="left"><img src="Pics/phone2.jpg" class="contacticon" />Phone</p>
-                    <a class="right">(805) 610-6696</a>
+                    <a id="contact-phone" class="right">(805) 610-6696</a>
                     <br>
                     <hr>
                 </div>
@@ -520,8 +520,8 @@
         </div>
     </div>
     <div class="footer">
-        <p><span id="spanyear"></span>&nbsp; --&nbsp; Ben Glossner. All handmade with no template. Hosted on Google's
-            Compute Engine!&nbsp; -- &nbsp;Thanks for visiting!</p>
+        <p><span id="spanyear"></span>&nbsp; --&nbsp; Ben Glossner. All handmade with no template. Hosted on a Google
+            Compute Engine VM instance!&nbsp; -- &nbsp;Thanks for visiting!</p>
     </div>
     <div id="image-shower">
         <!--<img id="in-image-shower" />-->

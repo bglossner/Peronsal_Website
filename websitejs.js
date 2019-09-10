@@ -339,7 +339,7 @@ function openPage(page) {
 
 function unshowModal()
 {
-    console.log('unshow');
+    // console.log('unshow');
     let modalObj = document.getElementsByClassName('modal-content')[0];
     modalObj.style.animationDirection = "reverse";
     let newObj = modalObj.cloneNode(true);
@@ -585,6 +585,13 @@ window.onload = function() {
     scrollTo(0, 0);
 
     modalTimeout = setTimeout(() => {
+        let blueBtn = document.querySelector(".modal-content .blue");
+        if (blueBtn.style.display != "none") {
+            document.querySelector('.modal-text').innerHTML = "Leave a quick review?";
+            document.querySelector(".modal-content .green").style.display = "inline-block";
+            document.querySelector(".modal-content .red").style.display = "inline-block";
+            document.querySelector(".modal-content .blue").style.display = "none";
+        }
         showModal();
     }, 60000);
     /* modalTimeout = setTimeout(() => {
@@ -620,7 +627,13 @@ function searchEnterHit()
     {
         document.getElementById("text_search").value = "";
         hideHits();
-        alert("That entry is currently not supported.")
+        // Change and show modal for no search hits
+        document.querySelector('.modal-text').innerHTML = "Sorry, but that entry is not currently supported.";
+        document.querySelector(".modal-content .green").style.display = "none";
+        document.querySelector(".modal-content .red").style.display = "none";
+        document.querySelector(".modal-content .blue").style.display = "inline-block";
+        showModal();
+        // alert("That entry is currently not supported.")
     }
 }
 
